@@ -38,8 +38,10 @@ function genPassword(){
 }
 
 function copyClipboard(){
+    var copyText = document.getElementById("output");
     output.select();
-    document.execCommand('copy');
-    alert("Password Copied!");
+    copyText.setSelectionRange(0, 99999); 
+    navigator.clipboard.writeText(copyText.value);
+    alert("Copied the text: " + copyText.value);
 }
 genPassword();
